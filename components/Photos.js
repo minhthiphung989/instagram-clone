@@ -1,5 +1,5 @@
 import React from 'react';
-import {Image, Pressable, View} from 'react-native';
+import { Image, Pressable } from 'react-native';
 export const Photos = ({width, height, stylePhoto, img}) => {
   return (
     <Pressable style={stylePhoto}>

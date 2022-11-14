@@ -1,15 +1,10 @@
-import React, {useRef, useState, memo} from 'react';
+import React, { memo, useRef, useState } from 'react';
 import {
-  View,
-  Text,
-  Dimensions,
-  TouchableOpacity,
-  Image,
-  StyleSheet,
+  Dimensions, Image,
+  StyleSheet, Text, TouchableOpacity, View
 } from 'react-native';
-import {ImgButton} from '../Button/Button';
-import {MoreBtn} from '../Button/MoreBtn';
 import Video from 'react-native-video';
+import { ImgButton } from '../Button/Button';
 
 const SingleReels = ({item, index, currentIndex}) => {
   const videoRef = useRef(null);
@@ -22,7 +17,6 @@ const SingleReels = ({item, index, currentIndex}) => {
   const onError = error => {
     console.log('error', error);
   };
-  console.log(item);
 
   return (
     <View
@@ -59,7 +53,7 @@ const SingleReels = ({item, index, currentIndex}) => {
           position: 'absolute',
           width: windowWidth,
           zIndex: 1,
-          bottom: 0, //edited
+          bottom: 0,
           padding: 10,
         }}>
         <View style={{}}>
@@ -117,8 +111,8 @@ const SingleReels = ({item, index, currentIndex}) => {
             height={21}
             img={
               like
-                ? require('../../img/btn/LikeW.png')
-                : require('../../img/btn/heart-992.png')
+                ? require('../../img/btn/heart-992.png')
+                : require('../../img/btn/LikeW.png')
             }
           />
           <Text style={{color: 'white'}}>{item.likes}</Text>

@@ -1,14 +1,18 @@
 import React from 'react';
-import {View, Text, Dimensions, FlatList} from 'react-native';
-import Feather from 'react-native-vector-icons/Feather';
-import {ImgButton} from '../components/Button/Button';
-import SingleReels from '../components/Card/SingleReels';
-import {videoData} from '../components/Card/Data/videoData';
+import { Dimensions, Text, View } from 'react-native';
+import ImagePicker from 'react-native-image-crop-picker';
+import { ImgButton } from '../components/Button/Button';
 import ReelsComponent from '../components/Card/ReelsComponent';
 export const ReelsScreen = () => {
   const windowWidth = Dimensions.get('window').width;
   const windowHeight = Dimensions.get('window').height;
-
+  const takeVideoFromCamera = () => {
+    ImagePicker.openCamera({
+      mediaType: 'video',
+    }).then(video => {
+      console.log(video);
+    });
+  };
   return (
     <View
       style={{
@@ -32,13 +36,14 @@ export const ReelsScreen = () => {
         <Text style={{fontSize: 20, fontWeight: 'bold', color: 'white'}}>
           Reels
         </Text>
-        <ImgButton
-          width={24}
-          height={22}
-          img={require('../img/btn/CameraIconW.png')}
-        />
+          <ImgButton
+            width={24}
+            height={22}
+            img={require('../img/btn/CameraIconW.png')}
+            pressFunc={takeVideoFromCamera}
+          />
       </View>
-        <ReelsComponent/>
+      <ReelsComponent />
     </View>
   );
 };

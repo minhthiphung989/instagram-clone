@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import {
   Dimensions,
   Image,
@@ -7,9 +7,9 @@ import {
   StyleSheet,
   Text,
   TextInput,
-  View,
+  View
 } from 'react-native';
-import {ImgButton} from '../components/Button/Button';
+import { ImgButton } from '../components/Button/Button';
 import SearchContent from '../components/Card/SearchContent';
 export const SearchScreen = () => {
   const [image, setImage] = useState(null);

@@ -4,15 +4,15 @@ import {Avatar} from '../Avatar';
 import {MoreBtn} from '../Button/MoreBtn';
 import {ImgButton} from '../Button/Button';
 
-export const Post = ({avatar, userName, img}) => {
+export const Post = ({avatar, userName, img, pressFunc}) => {
   const [liked, setLiked] = useState(true);
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <View style={styles.user}>
+        <Pressable onPress={pressFunc} style={styles.user}>
           <Avatar width={32} height={32} image={avatar} />
           <Text style={styles.text}>{userName}</Text>
-        </View>
+        </Pressable>
         <MoreBtn style={styles.more} />
       </View>
       <Image source={img} style={styles.image} />

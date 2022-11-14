@@ -1,27 +1,37 @@
 // In App.js in a new project
 
+import {useNavigation} from '@react-navigation/native';
 import * as React from 'react';
-import {
-  ScrollView, StyleSheet
-} from 'react-native';
-import { posts } from '../components/Card/Data/Posts';
-import { Header } from '../components/Card/Header';
-import { Post } from '../components/Card/Post';
-import { Stories } from '../components/Card/Stories';
+import {ScrollView, StyleSheet} from 'react-native';
+import {FriendsProfileData} from '../components/Card/Data/UserData';
+import {Header} from '../components/Card/Header';
+import {Post} from '../components/Card/Post';
+import {Stories} from '../components/Card/Stories';
 
 export function HomeScreen() {
+  const navigation = useNavigation();
   return (
     <>
       <Header style={styles.container} />
       <ScrollView style={{backgroundColor: 'white'}}>
         <Stories style={styles.container} />
-        {posts.map(post => (
+        {FriendsProfileData.map(post => (
           <Post
             key={post.id}
-            avatar={{uri:post.avatar}}
-            userName={post.userName}
-            img={post.images}
-            // style={styles.container}
+            avatar={post.profileImage}
+            userName={post.name}
+            img={post.profileImage}
+            pressFunc={() => {
+              navigation.navigate('ProfileFriendScreen', {
+                accountName: post.accountName,
+                profileImage: post.profileImage,
+                posts: post.posts,
+                followers: post.followers,
+                following: post.following,
+                name: post.name,
+                follow: post.follow,
+              });
+            }}
           />
         ))}
       </ScrollView>

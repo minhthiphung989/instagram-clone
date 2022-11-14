@@ -1,28 +1,16 @@
-import { useNavigation, useRoute } from '@react-navigation/native';
+import {useNavigation} from '@react-navigation/native';
 import React from 'react';
-import {
-  Image,
-  Pressable,
-  ScrollView,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
-import {TabView, SceneMap} from 'react-native-tab-view';
-
+import {Pressable, ScrollView, StyleSheet, Text, View} from 'react-native';
 import {Avatar} from '../components/Avatar';
 import {ImgButton} from '../components/Button/Button';
-import {Stories} from '../components/Card/Stories';
 import {UserInfo} from '../components/Card/UserInfo';
 import {Photos} from '../components/Photos';
-import { useImage } from './EditProfileScreen';
 export const ProfileScreen = () => {
-
   const navigation = useNavigation();
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.userName}>Tony Teo</Text>
+        <Text style={styles.userName}>itscharlotty</Text>
         <Pressable>
           <ImgButton
             width={21}
@@ -33,9 +21,9 @@ export const ProfileScreen = () => {
       </View>
       <View style={styles.info}>
         <Avatar
-          image={
-            {uri:'https://i.pinimg.com/originals/b6/48/62/b648623f2cc32117d2fe50bbe33e11ba.jpg'}
-          }
+          image={{
+            uri: 'https://i.pinimg.com/originals/b6/48/62/b648623f2cc32117d2fe50bbe33e11ba.jpg',
+          }}
           width={86}
           height={86}
           styleContainer={styles.avatar}
@@ -47,8 +35,10 @@ export const ProfileScreen = () => {
         <Text style={{fontWeight: '700'}}>Jacob West</Text>
         <Text>Digital goodies designer @pixsellz Everything is designed.</Text>
       </View>
-      <Pressable onPress={() => navigation.navigate('EditProfileScreen')} style={styles.editBtn} >
-        <Text style={{color:'black'}}>Edit profile</Text>
+      <Pressable
+        onPress={() => navigation.navigate('EditProfileScreen')}
+        style={styles.editBtn}>
+        <Text style={{color: 'black'}}>Edit profile</Text>
       </Pressable>
       {/* <Stories/> */}
       <ScrollView>
@@ -71,7 +61,6 @@ export const ProfileScreen = () => {
           <Photos width={124} height={124} stylePhoto={styles.photo} />
         </View>
       </ScrollView>
-      
     </View>
   );
 };
@@ -87,7 +76,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     alignItems: 'center',
     marginTop: 10,
-    backgroundColor:'white'
+    backgroundColor: 'white',
   },
   header: {
     flexDirection: 'row',
@@ -110,11 +99,11 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
     paddingTop: 10,
     width: '100%',
-    marginTop:20,
-    border: '1px solid rgba(60, 60, 67, 0.18)'
+    marginTop: 20,
+    border: '1px solid rgba(60, 60, 67, 0.18)',
   },
   photo: {
     width: '33.33%',
-    marginBottom:5
+    marginBottom: 5,
   },
 });

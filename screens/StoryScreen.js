@@ -1,18 +1,11 @@
-import {useNavigation, useRoute} from '@react-navigation/native';
-import React, {useEffect, useState} from 'react';
+import { useNavigation, useRoute } from '@react-navigation/native';
+import React, { useEffect, useState } from 'react';
 import {
-  ImageBackground,
-  TextInput,
-  View,
-  Text,
-  StyleSheet,
-  Animated,
-  StatusBar,
-  Image,
-  TouchableOpacity,
+  Animated, Image, StatusBar, StyleSheet, Text, TextInput,
+  View
 } from 'react-native';
-import {Avatar} from '../components/Avatar';
-import {ImgButton} from '../components/Button/Button';
+import { Avatar } from '../components/Avatar';
+import { ImgButton } from '../components/Button/Button';
 export const StoryScreen = () => {
   const [likeStory, setLikeStory] = useState(true);
   const navigation = useNavigation();
@@ -55,7 +48,12 @@ export const StoryScreen = () => {
           }}></Animated.View>
       </View>
       <View style={styles.userBar}>
-        <Avatar image={image} width={30} height={30} styleContainer={styles.avatarContainer}/>
+        <Avatar
+          image={image}
+          width={30}
+          height={30}
+          styleContainer={styles.avatarContainer}
+        />
         <View style={styles.userName}>
           <Text style={{color: 'white', fontSize: 15, paddingLeft: 10}}>
             {name}
@@ -139,7 +137,7 @@ const styles = StyleSheet.create({
   avatarContainer: {
     justifyContent: 'center',
     alignItems: 'center',
-    paddingTop:10
+    paddingTop: 10,
   },
   avatar: {
     borderRadius: 100,

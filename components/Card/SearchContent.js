@@ -1,42 +1,10 @@
-import {View, Text, TouchableOpacity, Image} from 'react-native';
-import {useNavigation} from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 import React from 'react';
-import {Photos} from '../Photos';
+import { Image, TouchableOpacity, View } from 'react-native';
+import { searchData } from './Data/SearchData';
 
 const SearchContent = props => {
   const navigation = useNavigation();
-  const searchData = [
-    {
-      id: 0,
-      images: [
-        require('../../img/images/post1.jpg'),
-        require('../../img/images/post2.jpg'),
-        require('../../img/images/post3.jpg'),
-        require('../../img/images/post4.jpg'),
-        require('../../img/images/post5.jpg'),
-        require('../../img/images/post6.jpg'),
-      ],
-    },
-    {
-      id: 1,
-      images: [
-        require('../../img/images/post7.jpg'),
-        require('../../img/images/post8.jpg'),
-        require('../../img/images/post9.jpg'),
-        require('../../img/images/post10.jpg'),
-        require('../../img/images/post11.jpg'),
-        require('../../img/images/post12.jpg'),
-      ],
-    },
-    {
-      id: 2,
-      images: [
-        require('../../img/images/post13.jpg'),
-        require('../../img/images/post14.jpg'),
-        require('../../img/images/post15.jpg'),
-      ],
-    },
-  ];
   return (
     <View>
       {searchData.map((data, index) => {
@@ -57,7 +25,7 @@ const SearchContent = props => {
                       onPress={() =>
                         navigation.navigate('DetailScreen', {image: imageData})
                       }
-                      onPressIn={() => props.data(imageData)}
+                      onLongPress={() => props.data(imageData)}
                       onPressOut={() => props.data(null)}
                       style={{paddingBottom: 2, width: '33%'}}>
                       <Image
@@ -91,7 +59,7 @@ const SearchContent = props => {
                             image: imageData,
                           })
                         }
-                        onPressIn={() => props.data(imageData)}
+                        onLongPress={() => props.data(imageData)}
                         onPressOut={() => props.data(null)}
                         style={{paddingBottom: 2, width: '49.5%'}}>
                         <Image
@@ -103,7 +71,7 @@ const SearchContent = props => {
                   })}
                 </View>
                 <TouchableOpacity
-                  onPressIn={() => props.data(data.images[5])}
+                  onLongPress={() => props.data(data.images[5])}
                   onPressOut={() => props.data(null)}
                   style={{marginLeft: 2, width: '33%'}}>
                   <Image
@@ -123,7 +91,7 @@ const SearchContent = props => {
                   onPress={() =>
                     navigation.navigate('DetailScreen', {image: imageData})
                   }
-                  onPressIn={() => props.data(data.images[2])}
+                  onLongPress={() => props.data(data.images[2])}
                   onPressOut={() => props.data(null)}
                   style={{paddingRight: 2, width: '66.5%'}}>
                   <Image
@@ -147,7 +115,7 @@ const SearchContent = props => {
                             image: imageData,
                           })
                         }
-                        onPressIn={() => props.data(imageData)}
+                        onLongPress={() => props.data(imageData)}
                         onPressOut={() => props.data(null)}
                         style={{paddingBottom: 2, width: '100%'}}>
                         <Image

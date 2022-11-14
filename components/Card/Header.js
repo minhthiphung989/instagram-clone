@@ -3,11 +3,8 @@ import {StyleSheet, View} from 'react-native';
 import {ImgButton} from '../Button/Button';
 import {SendBtn} from '../Button/SendBtn';
 import {Logo} from '../Logo';
-import { useIsFocused } from '@react-navigation/native';
 
 export const Header = () => {
-  const isFocused = useIsFocused();
-  console.log(isFocused, 'is');
   return (
     <View style={styles.container}>
       <Logo />
